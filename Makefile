@@ -42,6 +42,7 @@ libpcl.a: $(OBJS)
 	$(CC) $(CFLAGS) $(DEFINES) $^ -c -o $@
 
 .PHONY: test
+test:
 	make -C test
 
 .PHONY: clean
