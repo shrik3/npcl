@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: CC0-1.0
+# Copyright (C) 2024 Tianhao Wang <i@shrik3.com>
+# I don't really care about my part of "copyright" but I'm adding this
+# to make it compliant with REUSE Specification
+
+*.o
+config.h*
+config.h.in*
+config.log
+config.status
+configure
+configure~
+autosomething/
+autom4te.cache/

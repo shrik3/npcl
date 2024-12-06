@@ -1,0 +1,42 @@
+SPDX-License-Identifier: GPL-2.0-or-later
+Copyright (C) 2024 Tianhao Wang <i@shrik3.com>
+
+npcl: the non-portable port of the portable coroutine library
+
+this is a fork of PCL by Davide Libenzi (Portable Coroutine Library), with the
+following changes:
+
+- no longer portable: this is aimed for x86_64 (gnu+) linux
+- easier to build pcl (statically) into other programs
+- option to chose one of those coroutine implementations (ucontext or
+  longjmp/setjmp)
+- less GNU autoxyz stuffs: it's nice but also too much for what we need
+- a few bug fixes
+
+to build:
+    $ make config       # this will check if your system have xyz
+                        # features
+    $ make <OPTIONS>    # produce libpcl.a, see below for options
+    $ make test         # build some tests under ./test/
+    $ make dist-clean   # remove gnu's autoxyz artifacts
+
+example:
+    make config
+    make CO_MODE=UCONTEXT USE_MT=Y
+
+OPTIONS:
+-----------------------------------------------------------------------
+CO_MODE=LONGJMP     (default) use a setjmp/longjmp to implement the
+                    coroutine/fiber. This is slower in coroutine
+                    creation/deletion but extremely fast in context
+                    switching. This is borrowed from GNU's pth
+
+CO_MODE=UCONTEXT    use standard library's makecontext/swapcontext; this
+                    is much slower than the longjmp mode in context
+                    switching  because it invokes one sigprocmask
+                    syscall. But still much faster than a unix thread or
+                    process
+
+USE_MY=Y            (not compatible with LONGJMP mode): whether support
+                    multithread
+-----------------------------------------------------------------------
