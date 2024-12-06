@@ -40,3 +40,9 @@ CO_MODE=UCONTEXT    use standard library's makecontext/swapcontext; this
 USE_MY=Y            (not compatible with LONGJMP mode): whether support
                     multithread
 -----------------------------------------------------------------------
+
+experimental single header implementaion: see npcl.h , this works superfacially
+but not really put into the test. I doubt if it works at all because the global
+variables work totally differently when you include the header that has `static
+something` into multiple c source code. Anyways, don't use it!
+

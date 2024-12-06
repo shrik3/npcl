@@ -11,8 +11,11 @@ LIBPCL = ../libpcl.a
 .PHONY: all clean
 all: $(tests)
 
+test_npcl: test_npcl.c
+	gcc -o $@ $^
+
 clean:
-	rm -f *.o $(tests)
+	rm -f *.o $(tests) test_npcl
 
 %: %.c
 	gcc -o $@ $^ $(LIBPCL)  -lpthread -include $(PCL_INCLUDE)
