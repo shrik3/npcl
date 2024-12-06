@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2024 Tianhao Wang <i@shrik3.com>
+#
 # we only need autoconf the chec for several system function dependencies and
 # produce a config header.
 AC_INIT([libpcl], [1.12], [shrik3@mailbox.org])

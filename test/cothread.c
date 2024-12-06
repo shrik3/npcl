@@ -1,15 +1,6 @@
-// SPDX-License-Identifier: GPL-2.0-or-later
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-#include <sys/time.h>
-#include <unistd.h>
-#include <pthread.h>
-#include <pcl.h>
 
 /*
+  SPDX-License-Identifier: GPL-2.0-or-later
   Implements a simple cooperative multi-threading environment.
 
   Copyright 2000 by E. Toernig <froese@gmx.de>.
@@ -53,6 +44,15 @@
   [[xref: co_create, co_delete, co_call, co_current]]
   [[xref: select, gettimeofday, memset]]
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+#include <sys/time.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <pcl.h>
 
 
 
